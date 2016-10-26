@@ -31,9 +31,6 @@ int main(){
   upast[0] = 0.0;
   upast[puntos] = 0.0;
 
-  //for(i=0; i<=100; i++){
-  //printf("%f\n", u0[i]);
-  //}
 
   float u1[puntos+1];
   float upresent[puntos+1];
@@ -59,13 +56,10 @@ int main(){
       upresent[i] = u1[i];
     }for(i=0; i<=puntos; i++){
       printf("%f\n", upresent[i]);
-    }//printf("\t \n");
+    }
   }
   
   
-
-  
-
   return 0;
 
 }
