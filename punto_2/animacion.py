@@ -9,7 +9,7 @@ f.close()
 
 arrayu = np.array(listu)
 
-tf = 200
+tf = 201
 u = np.array_split(arrayu, tf)
 
 
@@ -17,7 +17,7 @@ for i in range(tf):
 
     plt.figure()
     plt.plot(u[i])
-    plt.ylim(0, 1)
+    plt.ylim(-1, 1)
     name = 'u_%05d.png' %i
     plt.savefig(name)
     plt.close()
