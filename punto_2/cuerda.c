@@ -5,7 +5,7 @@ int main(){
 
   int puntos = 100;
   float dx = 1.0/puntos;
-  float dt = 0.0005;
+  float dt = 0.005;
   float T = 40.0;
   float rho = 10.0;
   float c = sqrt(T/rho);
@@ -27,6 +27,10 @@ int main(){
  
   u0[0] = 0.0;
   u0[puntos] = 0.0;
+
+  for(i=0; i<=puntos; i++){
+    printf("%f\n", u0[i]);
+  }
 
   upast[0] = 0.0;
   upast[puntos] = 0.0;
