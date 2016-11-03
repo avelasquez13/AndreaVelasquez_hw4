@@ -4,8 +4,7 @@
 
 int main(){
 
-  float L = 5, l = 2, d = 1, h = 0.02, V0 = 100;
-  float N = 2*pow((L/h), 2);
+  float L = 5, l = 2, d = 1, h = 0.02, V0 = 100, N = 2*pow((L/h), 2);
   int n = (int)(L/h);
 
   //inicializa la matriz
