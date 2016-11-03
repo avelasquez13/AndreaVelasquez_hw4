@@ -22,5 +22,5 @@ for i in range(tf-1):
     plt.savefig(name)
     plt.close()
 
-os.system('convert -delay 10 -loop 0 *png cuerda.gif')
+os.system('convert -delay 8 -loop 0 *png cuerda.gif')
 os.system('rm *.png')
