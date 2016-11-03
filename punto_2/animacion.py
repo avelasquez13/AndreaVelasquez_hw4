@@ -13,7 +13,7 @@ tf = 201
 u = np.array_split(arrayu, tf)
 
 
-for i in range(tf):
+for i in range(tf-1):
 
     plt.figure()
     plt.plot(u[i])
