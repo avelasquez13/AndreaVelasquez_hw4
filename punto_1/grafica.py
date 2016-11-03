@@ -23,10 +23,12 @@ for i in range(len(Ey)):
     Ey[i] = np.asfarray(Ey[i])
 
 
-plt.imshow(np.array(potencial).T)
+plt.imshow(np.array(potencial).T, extent = [0, 5, 0, 5])
 
-Y, X = np.mgrid[250:0:250j, 0:250:250j]
-plt.streamplot(X, Y, np.array(Ex).T, np.array(Ey).T, color = 'k')
+x = np.linspace(0, 5, 250)
+y = np.linspace(5, 0, 250)
+plt.streamplot(x, y, np.array(Ex).T, np.array(Ey).T, color = 'k', density = 1.3)
 
+plt.title('Potencial y campo de placas paralelas')
 plt.savefig('placas.pdf')
 
