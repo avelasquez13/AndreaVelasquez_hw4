@@ -29,6 +29,8 @@ x = np.linspace(0, 5, 250)
 y = np.linspace(5, 0, 250)
 plt.streamplot(x, y, np.array(Ex).T, np.array(Ey).T, color = 'k', density = 1.3)
 
+plt.ylim([0, 5])
+
 plt.title('Potencial y campo de placas paralelas')
 plt.savefig('placas.pdf')
 
