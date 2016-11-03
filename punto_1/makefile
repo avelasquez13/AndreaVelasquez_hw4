@@ -8,4 +8,3 @@ potencial.dat : placas.c
 clean :
 	rm a.out
 	rm potencial.dat
-	rm placas.pdf
