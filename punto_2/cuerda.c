@@ -3,14 +3,8 @@
 
 int main(){
 
-  int puntos = 100;
-  float dx = 1.0/puntos;
-  float dt = 0.005;
-  float T = 40.0;
-  float rho = 10.0;
-  float c = sqrt(T/rho);
-  float r = c*dt/dx;
-  int tf = 200;
+  int puntos = 100, tf = 200;
+  float dx = 1.0/puntos, dt = 0.005, T = 40.0, rho = 10.0, c = sqrt(T/rho), r = c*dt/dx;
 
   float u0[puntos+1];
   float upast[puntos+1];
