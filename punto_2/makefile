@@ -8,4 +8,4 @@ valores.dat : cuerda.c
 clean :
 	rm a.out
 	rm valores.dat
-	rm cuerda.gif
+	
