@@ -20,7 +20,7 @@ int main(){
 
   for(i=0; i<n; i++){
     for(j=0; j<n; j++){
-      matriz[i][j] = 10;
+      matriz[i][j] = 5;
     }
   }
 
@@ -40,16 +40,45 @@ int main(){
   }
 
 
+  //inicializa la matriz temporal
+  double **matriz2;
+  matriz2 = (double**) malloc(n*sizeof(double*));
+
+  for (i=0; i<=n; i++){
+    matriz2[i] = (double*) malloc(n*sizeof(double));
+  }
+
+  for(i=0; i<n; i++){
+    for(j=0; j<n; j++){
+      matriz2[i][j] = 0;
+    }
+  }
+
+  for(i=(int)((L/2-l/2)/h); i<(int)((L/2+l/2)/h); i++){
+    matriz2[i][(int)((L/2-d/2)/h)] = -V0/2;
+    matriz2[i][(int)((L/2+d/2)/h)] = V0/2;
+  }
+
+
   //metodo de relajacion
   for(k=0; k<N; k++){
     for(i=1; i<n-1; i++){
       for(j=1; j<n-1; j++){
-	if(j!=(int)((L/2-d/2)/h) && j!=(int)((L/2+d/2)/h)){
-	  matriz[i][j]=0.25*(matriz[i+1][j]+matriz[i][j+1]+matriz[i-1][j]+matriz[i][j-1]);
-	}
+	  matriz2[i][j]=0.25*(matriz[i+1][j]+matriz[i][j+1]+matriz[i-1][j]+matriz[i][j-1]);
+      }
+    }
+    for(i=(int)((L/2-l/2)/h); i<(int)((L/2+l/2)/h); i++){
+      matriz2[i][(int)((L/2-d/2)/h)] = -V0/2;
+      matriz2[i][(int)((L/2+d/2)/h)] = V0/2;
+    }
+    for(i=1; i<n-1; i++){
+      for(j=1; j<n-1; j++){
+	matriz[i][j] = matriz2[i][j];
       }
     }
   }
+
+  
 
 
   //calcula el campo electrico
@@ -65,8 +94,8 @@ int main(){
 
   for(i=0; i<n; i++){
     for(j=0; j<n; j++){
-      Ex[i][j]=(matriz[i][j]-matriz[i+1][j]);
-      Ey[i][j]=(matriz[i][j]-matriz[i][j+1]);
+      Ex[i][j]=(matriz[i][j]-matriz[i+1][j])/h;
+      Ey[i][j]=-(matriz[i][j]-matriz[i][j+1])/h;
     }
   }
 
